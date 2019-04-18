@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 
     float xThrow;
     float yThrow;
-
+    bool isControlEnabled = true;
     [Header("General")]
     [Tooltip("In meters per sec")][SerializeField] float controlSpeed = 4f;
     [Tooltip("In meters per sec")] [SerializeField] float xRange = 4f;
@@ -33,10 +33,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        //print("Before ");
-        ProcessRotation();
-        //print("After ");
+        if(isControlEnabled)
+        {
+            ProcessTranslation();
+            //print("Before ");
+            ProcessRotation();
+            //print("After ");
+        }
+
 
     }
 
@@ -80,5 +84,6 @@ public class PlayerController : MonoBehaviour
     void OnPlayerDeath()
     {
         print("Control frozen");
+        isControlEnabled = false;
     }
 }
