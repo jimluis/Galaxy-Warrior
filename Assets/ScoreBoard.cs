@@ -8,7 +8,7 @@ public class ScoreBoard : MonoBehaviour
 
     int score = 0;
     Text scoreText;
-    [SerializeField] int scorePerHit = 12;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class ScoreBoard : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void ScoreHit()
+    public void ScoreHit(int scorePerHit)
     { 
         score = score + scorePerHit;
         scoreText.text = score.ToString();
