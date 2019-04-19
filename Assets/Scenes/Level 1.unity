@@ -179,6 +179,12 @@ Transform:
   m_Father: {fileID: 1888612360}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &268464129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3592840681085199847, guid: 9383636705edb436ab1c07fb30c16199,
+    type: 3}
+  m_PrefabInstance: {fileID: 1691606626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &304803726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1074994750746910, guid: 6d7afa73fcb1fce4cb4b65361a29bcbd,
@@ -211,6 +217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 7944659032894132986, guid: a0f6715df616948df9b865d876f03565, type: 3}
   parent: {fileID: 1951056178}
+  scorePerHit: 12
+  hits: 3
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 7944659032894132986, guid: a0f6715df616948df9b865d876f03565, type: 3}
   parent: {fileID: 1951056178}
+  scorePerHit: 12
+  hits: 3
 --- !u!114 &706752162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4354848751893472, guid: bf374732b0ea2c34daa340dc2de7f746, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 326.27
+      value: 321.6
       objectReference: {fileID: 0}
     - target: {fileID: 4354848751893472, guid: bf374732b0ea2c34daa340dc2de7f746, type: 3}
       propertyPath: m_LocalPosition.y
@@ -633,7 +643,7 @@ GameObject:
   - component: {fileID: 903493184}
   - component: {fileID: 903493186}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,7 +722,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 566438f3ae12f41d897349b38789e7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scorePerHit: 12
 --- !u!1 &913847935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,13 +1116,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.38300002
       objectReference: {fileID: 0}
+    - target: {fileID: 2133918956, guid: 9383636705edb436ab1c07fb30c16199, type: 3}
+      propertyPath: guns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2133918956, guid: 9383636705edb436ab1c07fb30c16199, type: 3}
+      propertyPath: guns.Array.data[0]
+      value: 
+      objectReference: {fileID: 1934517081}
+    - target: {fileID: 2133918956, guid: 9383636705edb436ab1c07fb30c16199, type: 3}
+      propertyPath: guns.Array.data[1]
+      value: 
+      objectReference: {fileID: 268464129}
     - target: {fileID: 2133918959, guid: 9383636705edb436ab1c07fb30c16199, type: 3}
       propertyPath: deathFX
       value: 
       objectReference: {fileID: 981601873}
     - target: {fileID: 541021298, guid: 9383636705edb436ab1c07fb30c16199, type: 3}
       propertyPath: m_Name
-      value: Bullets Right
+      value: Gun Right
       objectReference: {fileID: 0}
     - target: {fileID: 541021297, guid: 9383636705edb436ab1c07fb30c16199, type: 3}
       propertyPath: CollisionModule.enabled
@@ -1138,7 +1159,7 @@ PrefabInstance:
     - target: {fileID: 3592840681085199847, guid: 9383636705edb436ab1c07fb30c16199,
         type: 3}
       propertyPath: m_Name
-      value: Bullets Left
+      value: Gun Left
       objectReference: {fileID: 0}
     - target: {fileID: 3592840681085199844, guid: 9383636705edb436ab1c07fb30c16199,
         type: 3}
@@ -1392,6 +1413,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 7944659032894132986, guid: a0f6715df616948df9b865d876f03565, type: 3}
   parent: {fileID: 1951056178}
+  scorePerHit: 12
+  hits: 3
+--- !u!1 &1934517081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 541021298, guid: 9383636705edb436ab1c07fb30c16199,
+    type: 3}
+  m_PrefabInstance: {fileID: 1691606626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951056177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,7 +1468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4354848751893472, guid: bf374732b0ea2c34daa340dc2de7f746, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 307.2
+      value: 312.2
       objectReference: {fileID: 0}
     - target: {fileID: 4354848751893472, guid: bf374732b0ea2c34daa340dc2de7f746, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1521,6 +1550,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathFX: {fileID: 7944659032894132986, guid: a0f6715df616948df9b865d876f03565, type: 3}
   parent: {fileID: 1951056178}
+  scorePerHit: 12
+  hits: 3
 --- !u!114 &1999081673
 MonoBehaviour:
   m_ObjectHideFlags: 0

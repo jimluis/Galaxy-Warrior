@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [Tooltip("In meters per sec")][SerializeField] float controlSpeed = 4f;
     [Tooltip("In meters per sec")] [SerializeField] float xRange = 4f;
     [Tooltip("In meters per sec")] [SerializeField] float yRange = 2f;
+    [SerializeField] GameObject[] guns;
 
     [Header("Screen-Position Based")]
     [SerializeField] float positionPitchFactor = -5f;
@@ -36,9 +37,8 @@ public class PlayerController : MonoBehaviour
         if(isControlEnabled)
         {
             ProcessTranslation();
-            //print("Before ");
             ProcessRotation();
-            //print("After ");
+            ProcessFiring();
         }
 
 
@@ -86,4 +86,31 @@ public class PlayerController : MonoBehaviour
         print("Control frozen");
         isControlEnabled = false;
     }
+
+
+    void ProcessFiring()
+    {
+        if(CrossPlatformInputManager.GetButton("Fire"))
+            ActivateGuns();
+        else
+            DeactivateGuns();
+    }
+
+    void ActivateGuns()
+    {
+        foreach (GameObject gun in guns)
+        {
+            gun.SetActive(true);
+        }
+    }
+
+    void DeactivateGuns()
+    {
+        foreach(GameObject gun in guns)
+        {
+            gun.SetActive(false);
+        }
+    }
+
+
 }
