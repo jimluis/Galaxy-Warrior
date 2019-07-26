@@ -23,12 +23,12 @@ public class PlayerController : MonoBehaviour
     [Header("Control-throw Based")]
     [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float controlRollFactor = -20f;
-
+    SceneController sceneController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+       // sceneController = new SceneController();
     }
 
     // Update is called once per frame
@@ -85,6 +85,8 @@ public class PlayerController : MonoBehaviour
     {
         print("Control frozen");
         isControlEnabled = false;
+        SceneController.LoadEndScene();
+
     }
 
 
