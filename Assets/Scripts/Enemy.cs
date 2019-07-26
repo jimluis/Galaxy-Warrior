@@ -19,6 +19,13 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        //transform.LookAt(Camera.main.transform.position);
+
+    }
+
+
     void AddBoxCollider()
     {
         Collider boxCollider = gameObject.AddComponent<BoxCollider>();

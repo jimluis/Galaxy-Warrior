@@ -17,13 +17,6 @@ public class CollisionHandler : MonoBehaviour
     void StartDeathSequence()
     {
         SendMessage("OnPlayerDeath");
-
-
-        //print("StartDeathSequence - after calling OnPlayerDeath");
-        //if (collider.gameObject.tag == "Enemies")
-        //{
-        //    print("OnTriggerEnter - Player hit enemies");
-        //}
     }
 
     void ReloadScene()
