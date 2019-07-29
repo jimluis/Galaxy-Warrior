@@ -7,26 +7,26 @@ using UnityEngine.Playables;
 
 public class SceneController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    //void Start()
-    //{
-    //    Invoke("LoadNextLevel", 2f);
-    //}
-
-    [SerializeField]  GameObject panel;
+    [SerializeField]  GameObject lostPanel;
     [SerializeField]  Text scoreTextButton;
     [SerializeField]  PlayableDirector timeline;
-    ScoreBoard score;
+    //public delegate int ScoreChecker();
+    //public static event ScoreChecker currentScore;
 
-    static GameObject panel1;
-    static Text scoreTextButton1;
-    static PlayableDirector timeline1;
-
-    private void Start()
+     void Awake()
     {
-        panel1 = panel;
-        scoreTextButton1 = scoreTextButton;
-        timeline1 = timeline;
+        if(timeline != null)
+            timeline.Pause();
+    }
+
+    void Start()
+    {
+        Debug.Log("SceneController.Start  - timeline:" + timeline + "lostPanel: " + lostPanel); //+ " ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
+       
+         PlayerController.displayLostPanel += DisplayLostPanel;
+        //panel1 = panel;
+        //scoreTextButton1 = scoreTextButton;
+        //timeline1 = timeline;
     }
     public void LoadNextLevel()
     {
@@ -43,18 +43,20 @@ public class SceneController : MonoBehaviour
     public void ReloadLevel()
     {
         int currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(currentScene-1);
     }
 
-    public static void LoadEndScene()
+    public void DisplayLostPanel()
     {
-        Debug.Log("LoadEndScene - timeline:"+ timeline1 + "panel: "+ panel1 + " ScoreBoard._Instance.Score.ToString(): "+ ScoreBoard._Instance.Score.ToString());
+        Debug.Log("LoadEndScene - timeline:" + timeline + "lostPanel: " + lostPanel);// + " ScoreBoard._Instance.Score.ToString(): "+ ScoreBoard._Instance.Score.ToString());
 
-        timeline1.Stop();
-        panel1.SetActive(true);
-        Debug.Log("LoadEndScene - panel: " + panel1);
-        Debug.Log("LoadEndScene - ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
-        scoreTextButton1.text = ScoreBoard._Instance.Score.ToString();
+        timeline.Stop();
+        lostPanel.SetActive(true);
+        //scoreTextButton.text = currentScore.ToString();
+
+
     }
+
+
 
 }

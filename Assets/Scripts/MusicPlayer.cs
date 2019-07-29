@@ -5,12 +5,21 @@ using UnityEngine.UI;
 
 public class MusicPlayer : MonoBehaviour
 {
+
     [SerializeField] AudioSource backgroundAudio;
-    [SerializeField] Button textButton;
     Text text;
+
+
+    void Start()
+    {
+        UIController.soundControl += SoundController;
+    }
+
     void Awake()
     {
-        text = textButton.GetComponent<Text>();
+
+        
+        //text = textButton.GetComponent<Text>();
         backgroundAudio.Play();
 
         int numMusicPlayers = FindObjectsOfType<MusicPlayer>().Length;
@@ -23,19 +32,12 @@ public class MusicPlayer : MonoBehaviour
             DontDestroyOnLoad(gameObject);
     }
 
-    public void Mute()
+    public void SoundController()
     {
         if (backgroundAudio.isPlaying)
-        {
-            backgroundAudio.Stop();
-            text.text = "Play Music";
-        }
-
+            backgroundAudio.Pause();
         else
-        {
             backgroundAudio.Play();
-            text.text = "Stop Music";
-        }
 
     }
 

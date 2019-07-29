@@ -112,6 +112,54 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &163970159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163970161}
+  - component: {fileID: 163970160}
+  m_Layer: 0
+  m_Name: UIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &163970160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163970159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5edb03d210c4bd78722253566258a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configPanel: {fileID: 0}
+  timeline: {fileID: 0}
+  muteImage: {fileID: 21300000, guid: 6603ebf4f6b49934eac8829b00867cff, type: 3}
+  playImage: {fileID: 21300000, guid: 3b81b7072e3526041a0921e2f40362cc, type: 3}
+  muteButton: {fileID: 1051326966}
+--- !u!4 &163970161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163970159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 353.53207, y: 109.11572, z: -4.1875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &575028264
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,18 +239,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 575028264}
   m_CullTransparentMesh: 0
---- !u!114 &630045476 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5262136635718624214, guid: 677c952872aab4001bf78a11ebba0586,
-    type: 3}
-  m_PrefabInstance: {fileID: 5262136635855229872}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38407509e3ce041f9b21a5bbeae94d80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &630045477 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5262136635718624212, guid: 677c952872aab4001bf78a11ebba0586,
@@ -409,8 +445,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 67.9, y: -5.5}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -9.100006, y: 7.299988}
+  m_SizeDelta: {x: 31.59, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1051326965
 MonoBehaviour:
@@ -421,7 +457,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1051326963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -432,20 +468,15 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 32da498f18ebc4e179bd8625d7ff5dde, type: 3}
-    m_FontSize: 8
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 7
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Mute music
+  m_Sprite: {fileID: 21300000, guid: 6603ebf4f6b49934eac8829b00867cff, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
 --- !u!114 &1051326966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,8 +517,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 630045476}
-        m_MethodName: Mute
+      - m_Target: {fileID: 163970160}
+        m_MethodName: ToggleSoundImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -662,7 +693,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1616977883}
+      - m_Target: {fileID: 1616977885}
         m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
@@ -727,6 +758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616977884}
   - component: {fileID: 1616977883}
+  - component: {fileID: 1616977885}
   m_Layer: 0
   m_Name: Scene Loader
   m_TagString: Untagged
@@ -760,6 +792,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1616977885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616977882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f92001f9f90401888fc4bd0e6f8530, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1135845436}
+  scoreTextButton: {fileID: 0}
+  timeline: {fileID: 0}
 --- !u!1 &1766465185
 GameObject:
   m_ObjectHideFlags: 0
