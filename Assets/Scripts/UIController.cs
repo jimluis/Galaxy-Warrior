@@ -17,33 +17,41 @@ public class UIController : MonoBehaviour
     [SerializeField] Sprite muteImage;
     [SerializeField] Sprite playImage;
     [SerializeField] Button muteButton;
-   
+
+
+    [SerializeField] GameObject lostPanel;
+    [SerializeField] Text score;
+    [SerializeField] Text lostPanelScore;
+
+    void Awake()
+    {
+        if (timeline != null)
+            timeline.Pause();
+    }
+
+    private void OnEnable()
+    {
+        PlayerController.displayLostPanel += DisplayLostPanel;
+        ScoreBoard.UpdatedUIScoreOnHit += UpdateScore;
+    }
 
     void Start()
     {
-  
+        Debug.Log("SceneController.Start - score: "+ score+ " - lostPanelScore: "+ lostPanelScore);
+        Debug.Log("SceneController.Start  - timeline:" + timeline + "lostPanel: " + lostPanel); 
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void DisplayConfigMenu()
     {
         if (!configPanel.activeInHierarchy)
         {
-            //soundControl?.Invoke();
             timeline.Pause();
             configPanel.SetActive(true);
         }
 
         else
         {
-            //soundControl?.Invoke();
             timeline.Resume();
             configPanel.SetActive(false);
         }
@@ -71,5 +79,27 @@ public class UIController : MonoBehaviour
     {
         instructionsPanel.SetActive(false);
         timeline.Play();
+    }
+
+
+    public void DisplayLostPanel()
+    {
+        Debug.Log("UIController.DisplayLostPanel - timeline:" + timeline + "lostPanel: " + lostPanel + " ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
+
+        timeline.Stop();
+        lostPanel.SetActive(true);
+        lostPanelScore.text = "Score: " + ScoreBoard._Instance.Score.ToString();
+    }
+
+    public void UpdateScore()
+    {
+        Debug.Log("UIController.UpdateScore - score: "+ score + " timeline "+ timeline + " ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
+        score.text = "Score: "+ ScoreBoard._Instance.Score.ToString();
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.displayLostPanel -= DisplayLostPanel;
+        ScoreBoard.UpdatedUIScoreOnHit -= UpdateScore;
     }
 }

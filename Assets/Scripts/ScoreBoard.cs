@@ -6,49 +6,47 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour
 {
 
-    private static ScoreBoard _instance;
+    private static ScoreBoard instance;
+    public delegate void UpdateUIScore();
+    public static event UpdateUIScore UpdatedUIScoreOnHit;
 
-    private int score = 0;
+    private int score;
     Text scoreText;
 
-    //public static ScoreBoard _Instance
-    //{
-    //    get{
-
-    //        if (_instance == null)
-    //            return new ScoreBoard();
-    //        else
-    //            return _instance; 
-    //        }
-    //}
-
-    public int Score
+    public static ScoreBoard _Instance
     {
-        get{ return this.score;}
-        //set { score = value; }
+        get{
 
+            if (instance == null)
+                return new ScoreBoard();
+            else
+                return instance; 
+            }
+    }
+
+    public int Score 
+    { 
+        get
+        {
+            return score;
+        }
     }
 
     void Awake()
     {
-        //_instance = this;
-        //if (_instance == null)
-        //    _instance = this;
-        //else if (_instance != this)
-            //Destroy(gameObject);
+        instance = this;
     }
-    // Start is called before the first frame update
+
+
     void Start()
     {
-        //SceneController.currentScore += Score;
-
-        scoreText = GetComponent<Text>();
-        scoreText.text = score.ToString();
+        score = 0;
     }
 
     public void ScoreHit(int scorePerHit)
     { 
         score = score + scorePerHit;
-        scoreText.text = "Score: "+score.ToString();
+        Debug.Log("ScoreBoard.score: " + score);
+        UpdatedUIScoreOnHit();
     }
 }
