@@ -8,6 +8,8 @@ using UnityEngine.Playables;
 public class SceneController : MonoBehaviour
 {
 
+    public static bool isInstructionPanelDisplayed = false;
+
     public void LoadNextLevel()
     {
         int currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;

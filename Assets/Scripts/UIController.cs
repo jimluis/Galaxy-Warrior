@@ -43,9 +43,16 @@ public class UIController : MonoBehaviour
     void Start()
     {
         Debug.Log("SceneController.Start - score: "+ mainScore+ " - lostPanelScore: "+ lostPanelScore);
-        Debug.Log("SceneController.Start  - timeline:" + timeline + "lostPanel: " + lostPanel);
+        Debug.Log("SceneController.Start  - SceneController.isInstructionPanelDisplayed:" + SceneController.isInstructionPanelDisplayed);
 
-        if(isTest)
+        if (SceneController.isInstructionPanelDisplayed)
+        {
+            instructionsPanel.SetActive(false);
+            timeline.Play();
+        }
+
+
+        if (isTest)
             timeline.Play();
     }
 
@@ -86,6 +93,7 @@ public class UIController : MonoBehaviour
     {
         instructionsPanel.SetActive(false);
         timeline.Play();
+        SceneController.isInstructionPanelDisplayed = true;
     }
 
 
