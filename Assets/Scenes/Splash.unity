@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11931413, g: 0.15471491, b: 0.11833411, a: 1}
+  m_IndirectSpecularColor: {r: 0.1187885, g: 0.1543611, b: 0.1180521, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -141,11 +141,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5edb03d210c4bd78722253566258a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instructionsPanel: {fileID: 0}
   configPanel: {fileID: 0}
   timeline: {fileID: 0}
   muteImage: {fileID: 21300000, guid: 6603ebf4f6b49934eac8829b00867cff, type: 3}
   playImage: {fileID: 21300000, guid: 3b81b7072e3526041a0921e2f40362cc, type: 3}
   muteButton: {fileID: 1051326966}
+  winPanel: {fileID: 0}
+  lostPanel: {fileID: 0}
+  mainScore: {fileID: 0}
+  winPanelScore: {fileID: 0}
+  lostPanelScore: {fileID: 0}
+  isTest: 0
 --- !u!4 &163970161
 Transform:
   m_ObjectHideFlags: 0
@@ -194,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -44}
+  m_AnchoredPosition: {x: 0, y: -29}
   m_SizeDelta: {x: 573, y: 60.3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &575028266
@@ -445,7 +452,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -9.100006, y: 7.299988}
+  m_AnchoredPosition: {x: -9.099976, y: 7.299988}
   m_SizeDelta: {x: 31.59, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1051326965
@@ -650,7 +657,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: -0.0000061989}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 129.3, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1506074885
@@ -804,9 +811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f92001f9f90401888fc4bd0e6f8530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1135845436}
-  scoreTextButton: {fileID: 0}
-  timeline: {fileID: 0}
 --- !u!1 &1766465185
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +905,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio
       objectReference: {fileID: 0}
+    - target: {fileID: 5262136635718624212, guid: 677c952872aab4001bf78a11ebba0586,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5262136635718624213, guid: 677c952872aab4001bf78a11ebba0586,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -955,11 +964,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5262136635718624212, guid: 677c952872aab4001bf78a11ebba0586,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5262136635718624214, guid: 677c952872aab4001bf78a11ebba0586,
         type: 3}
