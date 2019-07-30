@@ -764,7 +764,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1616977884}
-  - component: {fileID: 1616977883}
   - component: {fileID: 1616977885}
   m_Layer: 0
   m_Name: Scene Loader
@@ -773,18 +772,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1616977883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616977882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e78c6829fc2e442abbda62c46296a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1616977884
 Transform:
   m_ObjectHideFlags: 0
