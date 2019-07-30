@@ -19,9 +19,13 @@ public class UIController : MonoBehaviour
     [SerializeField] Button muteButton;
 
 
+    [SerializeField] GameObject winPanel;
     [SerializeField] GameObject lostPanel;
-    [SerializeField] Text score;
+    [SerializeField] Text mainScore;
+    [SerializeField] Text winPanelScore;
     [SerializeField] Text lostPanelScore;
+
+    [SerializeField] bool isTest = false;
 
     void Awake()
     {
@@ -33,13 +37,16 @@ public class UIController : MonoBehaviour
     {
         PlayerController.displayLostPanel += DisplayLostPanel;
         ScoreBoard.UpdatedUIScoreOnHit += UpdateScore;
+        DestroyedEnemy.displayWinPanel += DisplayWinPanel;
     }
 
     void Start()
     {
-        Debug.Log("SceneController.Start - score: "+ score+ " - lostPanelScore: "+ lostPanelScore);
-        Debug.Log("SceneController.Start  - timeline:" + timeline + "lostPanel: " + lostPanel); 
+        Debug.Log("SceneController.Start - score: "+ mainScore+ " - lostPanelScore: "+ lostPanelScore);
+        Debug.Log("SceneController.Start  - timeline:" + timeline + "lostPanel: " + lostPanel);
 
+        if(isTest)
+            timeline.Play();
     }
 
     public void DisplayConfigMenu()
@@ -91,15 +98,25 @@ public class UIController : MonoBehaviour
         lostPanelScore.text = "Score: " + ScoreBoard._Instance.Score.ToString();
     }
 
+    public void DisplayWinPanel()
+    {
+        Debug.Log("UIController.DisplayWinPanel - timeline:" + timeline + "lostPanel: " + lostPanel + " ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
+       
+        timeline.Stop();
+        winPanel.SetActive(true);
+        winPanelScore.text = "Score: " + ScoreBoard._Instance.Score.ToString();
+    }
+
     public void UpdateScore()
     {
-        Debug.Log("UIController.UpdateScore - score: "+ score + " timeline "+ timeline + " ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
-        score.text = "Score: "+ ScoreBoard._Instance.Score.ToString();
+        Debug.Log("UIController.UpdateScore - score: "+ mainScore + " timeline "+ timeline + " ScoreBoard._Instance.Score.ToString(): " + ScoreBoard._Instance.Score.ToString());
+        mainScore.text = "Score: "+ ScoreBoard._Instance.Score.ToString();
     }
 
     private void OnDisable()
     {
         PlayerController.displayLostPanel -= DisplayLostPanel;
         ScoreBoard.UpdatedUIScoreOnHit -= UpdateScore;
+        DestroyedEnemy.displayWinPanel -= DisplayWinPanel;
     }
 }
