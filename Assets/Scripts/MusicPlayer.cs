@@ -9,16 +9,9 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] AudioSource backgroundAudio;
     Text text;
 
-
-    void Start()
-    {
-        UIController.soundControl += SoundController;
-    }
-
     void Awake()
     {
 
-        
         //text = textButton.GetComponent<Text>();
         backgroundAudio.Play();
 
@@ -32,6 +25,16 @@ public class MusicPlayer : MonoBehaviour
             DontDestroyOnLoad(gameObject);
     }
 
+    void OnEnable()
+    {
+        UIController.soundControl += SoundController;
+    }
+
+    void Start()
+    {
+        //backgroundAudio.Stop();
+    }
+
     public void SoundController()
     {
         if (backgroundAudio.isPlaying)
@@ -39,6 +42,11 @@ public class MusicPlayer : MonoBehaviour
         else
             backgroundAudio.Play();
 
+    }
+
+    void OnDisable()
+    {
+        UIController.soundControl -= SoundController;
     }
 
 

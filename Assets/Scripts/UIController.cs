@@ -77,15 +77,15 @@ public class UIController : MonoBehaviour
     {
         Sprite image = muteButton.GetComponent<Image>().sprite;
 
-        if(image.name == "Mute")
+        if(image.name == "Play")
         {
             soundControl?.Invoke();
-            muteButton.GetComponent<Image>().sprite = playImage;
+            muteButton.GetComponent<Image>().sprite = muteImage ;
         }
         else
         { 
             soundControl?.Invoke();
-            muteButton.GetComponent<Image>().sprite = muteImage;
+            muteButton.GetComponent<Image>().sprite = playImage;
         }
     }
 
